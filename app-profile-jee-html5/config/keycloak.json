@@ -1,6 +1,6 @@
 {
   "realm": "eap-demo",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzOUdEH2i3Y5yVN+xjkt5atPFlzqqx/ZK2yHvi+Hbx9XzjCKRCUSy0s6iW4dKu+SVRSjOvVmzSc5amqnQDjy6sSieKC/rxoqb6I1ml1RHb7zQr6mso/BD0ue6ZSkge0wMWgCJ7Akh/ht0PoRRy+NcXXPGh6mbzhJN+utoXyRCLLc3Mkq5WQa1gFJ2bAuoBjxvfJsGMduJKTfq1qUskSm82Gpz+M6lweKk0oJzlgQ3mNXqRUKUtMv4+mEEABqGeMtBF/JkkClEq4afXXXunTyNBOLO3nT4yzOyJ5L8GImmcVvV4lm8ZRN0hXyjfayQmFN0hkJ30fb49avO3NLIFOh6GQIDAQAB",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApqpXjQdfTcpFZstvJqVG9JEaN8zHR6P6Q2FCKoAgtK1N7hMSoG2F6opHQ8ANVTthTzjo9rEzgJISVlN9DoUFh/F2dHVhUno1bn707TqTw2i0a+S2H2vFUH0k7szAsTAZYaYmKNjFf9GIfEP/Ts3DwCOvkHZoxDB7Mll5Np3Um6keBxCbcQAKKlm8Hk26VZ5Mj7KywGK/u7KL79MWzcPOfVmBGxPsJ+Za5ooszfBYOxNZ3dgdPyv/stP3HmQCG98cXzdSzcH3IDjzeSOyPC5GSQ+DVI3QZMINybf2fE7GG277+gpqjNOWT3/bW66Wy/D1kC/NExnJz+sqyx+W756GzQIDAQAB",
   "auth-server-url": "http://sso-sso-app-demo.10.33.11.67.xip.io/auth",
   "ssl-required": "external",
   "resource": "app-profile-html5",

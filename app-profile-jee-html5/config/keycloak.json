@@ -1,0 +1,8 @@
+{
+  "realm": "eap-demo",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzOUdEH2i3Y5yVN+xjkt5atPFlzqqx/ZK2yHvi+Hbx9XzjCKRCUSy0s6iW4dKu+SVRSjOvVmzSc5amqnQDjy6sSieKC/rxoqb6I1ml1RHb7zQr6mso/BD0ue6ZSkge0wMWgCJ7Akh/ht0PoRRy+NcXXPGh6mbzhJN+utoXyRCLLc3Mkq5WQa1gFJ2bAuoBjxvfJsGMduJKTfq1qUskSm82Gpz+M6lweKk0oJzlgQ3mNXqRUKUtMv4+mEEABqGeMtBF/JkkClEq4afXXXunTyNBOLO3nT4yzOyJ5L8GImmcVvV4lm8ZRN0hXyjfayQmFN0hkJ30fb49avO3NLIFOh6GQIDAQAB",
+  "auth-server-url": "http://sso-sso-app-demo.10.33.11.67.xip.io/auth",
+  "ssl-required": "external",
+  "resource": "app-profile-html5",
+  "public-client": true
+}

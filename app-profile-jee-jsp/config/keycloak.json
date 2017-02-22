@@ -1,0 +1,10 @@
+{
+  "realm": "master",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArrD0gHXkD5KVReX7ibTbcAsXPD2zvuLHSfyI0lq4aqp7kOGyEYynuq825HT22i9+wPCINIdkqTvTn47myGp/dc9JZNu1WERT8eXsS8olY7QJWdFGqJxSMZk2FC3XNH2CBi4s0EGI6HPbc/GJvk1BDHBXPArQ4nd+KlIgLslfPlF42yonyiUrt2AmNTlqpjuE0q/3Ky6s+1KMz378e0XdjLgLL6JsDukjzNLTF4eCGl0hVpFsgAMuOq2bmQedmO2nt1gR/++TXXbEG1Opoyi6nexfCDk2SUC4cGzJTwClYlOgY2apd9WKIvgRtHMqJNb6ieIGmRaoDpo2oxQIsAs0pQIDAQAB",
+  "auth-server-url": "https://secure-sso-sso-app-demo.10.33.11.67.xip.io/auth",
+  "ssl-required": "external",
+  "resource": "app-profile-jsp",
+  "credentials": {
+    "secret": "5d941678-48ca-4b11-af7d-ca6f4841dad9"
+  }
+}

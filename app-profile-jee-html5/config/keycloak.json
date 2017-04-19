@@ -1,0 +1,6 @@
+{
+  "realm": "hello-world-authz",
+  "auth-server-url": "http://localhost:8180/auth",
+  "resource": "app-profile-html5",
+  "public-client": true
+}

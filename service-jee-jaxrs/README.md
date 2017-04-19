@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: JavaEE  
 Summary: JAX-RS Service  
 Target Product: RH-SSO, JBoss EAP  
-Source: <https://github.com/keycloak/rh-sso-quickstarts>
+Source: <https://github.com/redhat-developer/redhat-sso-quickstarts>  
 
 
 What is it?
@@ -77,6 +77,12 @@ Build and Deploy the Quickstart
    For JBoss EAP 6.4: mvn install -Deap6 jboss-as:deploy
    ````
 
+If you prefer to secure WARs via Keycloak subsystem:
+
+   ````
+   For JBoss EAP 7:   mvn install -Dsubsystem wildfly:deploy
+   For JBoss EAP 6.4: mvn install -Dsubsystem -Deap6 jboss-as:deploy
+   ````
 
 Access the Quickstart
 ---------------------

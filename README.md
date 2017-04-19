@@ -49,19 +49,6 @@ EAP repository based on the EAP version you're using.
 By default the RH-SSO Server uses the same ports as the JBoss EAP Server. To run the quickstarts you can either run the
  RH-SSO Server on a separate host (machine, VM, Docker, etc..) or on different ports.
 
-To start the RH-SSO server on a separate host:
-
-1. Open a terminal on the separate machine and navigate to the root of the RH-SSO server directory.
-
-2. The following shows the command to start the RH-SSO server:
-
-   ````
-   For Linux:   RHSSO_HOME/bin/standalone.sh -b 0.0.0.0
-   For Windows: RHSSO_HOME\bin\standalone.bat -b 0.0.0.0
-   ````
-
-3. The URL of the RH-SSO server will be http://&lt;HOSTNAME&gt;:8080 (replace &lt;HOSTNAME&gt; with the hostname of the separate host).
-
 To start the RH-SSO server on different ports:
 
 1. Open a terminal and navigate to the root of the RH-SSO server directory.
@@ -75,16 +62,29 @@ To start the RH-SSO server on different ports:
 
 3. The URL of the RH-SSO server will be *http://localhost:8180*
 
+To start the RH-SSO server with the preview profile:
+
+1. Open a terminal and navigate to the root of the RH-SSO server directory.
+
+2. The following shows the command to start the RH-SSO server:
+
+   ````
+   For Linux:   RHSSO_HOME/bin/standalone.sh -Dkeycloak.profile=preview
+   For Windows: RHSSO_HOME\bin\standalone.bat -Dkeycloak.profile=preview
+   ````
+
+3. The URL of the RH-SSO server will be *http://localhost:8180*
+
 ### <a id="add-admin"></a>Add Admin User
 
-Open the main page for the RH-SSO server ([localhost:8180](http://localhost:8180) or http://&lt;HOSTNAME&gt;:8080). If
+Open the main page for the RH-SSO server ([localhost:8180](http://localhost:8180)). If
 this is a new installation of RH-SSO server you will be instructed to create an initial admin user. To continue with
 the quickstarts you need to do this prior to continuing.
 
 ### <a id="add-roles-user"></a>Create Roles and User
 
 To be able to use the examples you need to create some roles as well as at least one sample user. To do first this open
-the RH-SSO admin console ([localhost:8180/auth/admin](http://localhost:8180/auth/admin) or http://&lt;HOSTNAME&gt;:8080/auth/admin) and
+the RH-SSO admin console ([localhost:8180/auth/admin](http://localhost:8180/auth/admin)) and
 login with the admin user you created in the [add admin user](#add-admin) section.
 
 Start by creating a user role:
@@ -124,14 +124,17 @@ One more step, if you want to access the examples with the admin user you need t
 <a id="jboss-eap"></a>Start and Configure the JBoss EAP Server
 --------------------------------------------------------------
 
+NOTE: This step is needed just if you want your applications to be deployed on JBoss EAP Server. If you want to use JBoss Fuse, you 
+can skip this step and go directly to the [fuse](fuse/README.md).
+
 Before starting the JBoss EAP server start by extracting the RH-SSO client adapter into it.
 
-For JBoss EAP 7 extract `RH-SSO-7.0.0.GA-eap7-adapter.zip` into EAP_HOME and for JBoss EAP 6.4 extract
-`RH-SSO-7.0.0.GA-eap6-adapter.zip` into EAP_HOME. 
+For JBoss EAP 7 extract `RH-SSO-7.1.0.GA-eap7-adapter.zip` into EAP_HOME and for JBoss EAP 6.4 extract
+`RH-SSO-7.1.0.GA-eap6-adapter.zip` into EAP_HOME. 
 
 If you plan to try the SAML examples you also need the SAML JBoss EAP adapter. To do this for JBoss EAP 7 extract
-`RH-SSO-7.0.0.GA-saml-eap7-adapter.zip` into EAP_HOME and for JBoss EAP 6.4 extract
-`RH-SSO-7.0.0.GA-saml-eap6-adapter.zip` into EAP_HOME.
+`RH-SSO-7.1.0.GA-saml-eap7-adapter.zip` into EAP_HOME and for JBoss EAP 6.4 extract
+`RH-SSO-7.1.0.GA-saml-eap6-adapter.zip` into EAP_HOME.
 
 The next step is to start JBoss EAP server:
 
@@ -171,6 +174,8 @@ The next step is to start JBoss EAP server:
 Examples
 --------
 
+* [app-authz-jee-servlet](app-authz-jee-servlet/README.md) - Servlet application using fine-grained authorization.
+* [app-authz-jee-vanilla](app-authz-jee-vanilla/README.md) - JSP application using fine-grained authorization.
 * [app-jee-html5](app-jee-html5/README.md) - HTML5 application that invokes the example service. Requires service example to be deployed.
 * [app-jee-jsp](app-jee-jsp/README.md) - JSP application packaged that invokes the example service. Requires service example to be deployed.
 * [app-profile-jee-html5](app-profile-jee-html5/README.md) - HTML5 application that displays user profile and token details.
@@ -178,6 +183,10 @@ Examples
 * [app-profile-jee-vanilla](app-profile-jee-vanilla/README.md) - JSP application configured with basic authentication. Shows how to secure an application with the client adapter subsystem.
 * [app-profile-saml-jee-jsp](app-profile-saml-jee-jsp/README.md) - JSP application that uses SAML and displays user profile.
 * [service-jee-jaxrs](service-jee-jaxrs/README.md) - JAX-RS Service with public and protected endpoints.
+* [service-nodejs](service-nodejs/README.md) - RESTful Service in Node.js with public and protected endpoints.
+* [user-storage-jpa](user-storage-jpa/README.md) - Example of the User Storage SPI implemented using EJB and JPA.
+* [user-storage-simple](user-storage-simple/README.md) - Example of User Storage SPI backend by a simple properties file. 
+* [fuse](fuse/README.md) - Set of quickstarts, which run on JBoss Fuse 6.3.0
 
 
 Troubleshooting

@@ -20,7 +20,7 @@
 
     <groupId>com.redhat.rh-sso</groupId>
     <artifactId>rh-sso-service-jee-jaxrs</artifactId>
-    <version>7.0.0.GA</version>
+    <version>7.1.0.GA</version>
     <packaging>war</packaging>
     <name>RH-SSO Quickstart: service-jee-jaxrs</name>
     <description>JAX-RS Service</description>
@@ -47,8 +47,8 @@
     </repositories>
 
     <properties>
-        <version.rh-sso.bom>7.0.0.GA</version.rh-sso.bom>
-        <version.wildfly.maven.plugin>1.0.1.Final</version.wildfly.maven.plugin>
+        <version.rh-sso.bom>7.1.0.GA</version.rh-sso.bom>
+        <version.wildfly.maven.plugin>1.1.0.Beta1</version.wildfly.maven.plugin>
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
         <version.war.maven.plugin>2.6</version.war.maven.plugin>
         <version.enforcer.maven.plugin>1.4.1</version.enforcer.maven.plugin>
@@ -57,47 +57,6 @@
     <build>
         <finalName>service</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>${version.enforcer.maven.plugin}</version>
-                <executions>
-                    <execution>
-                        <id>enforce-files-exist</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireFilesExist>
-                                    <files>
-                                        <file>${basedir}/config/keycloak.json</file>
-                                    </files>
-                                </requireFilesExist>
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${version.war.maven.plugin}</version>
-                <configuration>
-                    <webResources>
-                        <resource>
-                            <directory>${basedir}/config</directory>
-                            <includes>
-                                <include>keycloak.json</include>
-                            </includes>
-                            <targetPath>WEB-INF</targetPath>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
@@ -185,6 +144,80 @@
                     <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>json</id>
+            <activation>
+                <property>
+                    <name>!subsystem</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${version.enforcer.maven.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-files-exist</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireFilesExist>
+                                            <files>
+                                                <file>${basedir}/config/keycloak.json</file>
+                                            </files>
+                                        </requireFilesExist>
+                                    </rules>
+                                    <fail>true</fail>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>${version.war.maven.plugin}</version>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+
+                            <webResources>
+                                <resource>
+                                    <directory>${basedir}/config</directory>
+                                    <includes>
+                                        <include>keycloak.json</include>
+                                    </includes>
+                                    <targetPath>WEB-INF</targetPath>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>subsystem</id>
+            <activation>
+                <property>
+                    <name>subsystem</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>${version.war.maven.plugin}</version>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
